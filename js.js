@@ -140,29 +140,11 @@ window.addEventListener("scroll", () => {
   });
 });
 
-document.querySelectorAll(".Download_CV").forEach((button) => {
-  button.addEventListener("click", async function () {
-    try {
-      const fileUrl = "Om_Patel_Resume.pdf"; // Update with correct file path
-      const response = await fetch(fileUrl);
-      if (!response.ok) throw new Error("Failed to fetch file");
-
-      const blob = await response.blob();
-
-      const handle = await window.showSaveFilePicker({
-        suggestedName: "Om_Patel_Resume.pdf",
-        types: [
-          {
-            description: "PDF Document",
-            accept: { "application/pdf": [".pdf"] },
-          },
-        ],
-      });
-      const writable = await handle.createWritable();
-      await writable.write(blob);
-      await writable.close();
-    } catch (error) {
-      console.error("Error downloading file:", error);
-    }
-  });
+document.querySelector(".Download_CV").addEventListener("click", function () {
+  const link = document.createElement("a");
+  link.href = "Om_Patel_Resume.pdf"; // Path to your file
+  link.download = "Om_Patel_Resume.pdf"; // Custom filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 });
