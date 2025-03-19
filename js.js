@@ -150,3 +150,47 @@ document.querySelectorAll(".Download_CV").forEach((button) => {
     document.body.removeChild(link);
   });
 });
+
+(function () {
+  emailjs.init("z0mBOIFyhuA-EGvgh"); // Add your EmailJS public key here
+})();
+
+// Handle contact form submission
+document
+  .querySelector(".contact_form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Get the send button and disable it
+    const sendButton = document.getElementById("send-message");
+    sendButton.disabled = true;
+    sendButton.textContent = "Sending...";
+
+    // Get form data
+    const formData = {
+      name: this.user_name.value,
+      message: this.message.value,
+      subject: this.subject.value,
+      phone: this.user_phone.value,
+      email: this.user_email.value,
+    };
+
+    // Send email using EmailJS
+    emailjs
+      .send("service_8y6mx3o", "template_x0suhho", formData)
+      .then(
+        function () {
+          // Reset form
+          document.querySelector(".contact_form").reset();
+        },
+        function (error) {
+          // Show error message
+          console.error("EmailJS Error:", error);
+        }
+      )
+      .finally(function () {
+        // Re-enable the send button
+        sendButton.disabled = false;
+        sendButton.textContent = "Send Message";
+      });
+  });

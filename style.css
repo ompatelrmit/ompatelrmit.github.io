@@ -1042,8 +1042,13 @@ cursor.typing {
   box-shadow: 0 0 1rem var(--main-color);
 }
 
-.contact .btn {
-  display: inline-block;
+.btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#send-message {
   padding: 1.2rem 2.8rem;
   background: var(--main-color);
   border-radius: 4rem;
@@ -1054,8 +1059,9 @@ cursor.typing {
   border: none;
   cursor: pointer;
   transition: 0.5s ease;
-  margin-top: 1rem;
+  margin-top: 2rem;
   width: 19rem;
+  justify-content: center;
 }
 
 .contact .btn:hover {
@@ -1065,6 +1071,9 @@ cursor.typing {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .btn_container {
+    align-self: center;
+  }
   .contact {
     padding: 6rem 5% 2rem;
   }
