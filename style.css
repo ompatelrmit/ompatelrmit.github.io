@@ -24,18 +24,18 @@ body {
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: fit-content;
   padding: 3rem 9%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
+  z-index: 1000;
 }
 
 /* OM Patel TEXT  */
@@ -120,10 +120,14 @@ nav > a {
 }
 
 .res_nav {
+  position: fixed;
+  top: 100px;
+  left: 0;
   width: 100%;
-  background: rgba(49, 54, 63, 1);
+  background: rgba(49, 54, 63, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 999;
   display: none;
-  z-index: 100;
 }
 
 .res_nav > a {
@@ -203,6 +207,8 @@ nav > a {
   padding: 0rem 9% 10rem;
   display: flex;
   align-items: center;
+  scroll-margin-top: 100px;
+  position: relative;
 }
 
 /* Home Image */
@@ -457,6 +463,8 @@ cursor.typing {
   display: flex;
   flex-direction: column;
   box-sizing: content-box;
+  scroll-margin-top: 100px;
+  position: relative;
 }
 
 .projects > h1 {
@@ -464,6 +472,9 @@ cursor.typing {
   font-size: 4rem;
   color: var(--main-color);
   margin-bottom: 5%;
+  position: relative;
+  z-index: 1;
+  padding-top: 2rem;
 }
 
 .projects_content {
@@ -797,12 +808,17 @@ cursor.typing {
 .about {
   min-height: 100vh;
   padding: 8rem 9% 2rem;
+  scroll-margin-top: 100px;
+  position: relative;
 }
 
 .about h1 {
   text-align: center;
   font-size: 4rem;
   margin-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 2rem;
 }
 
 .about h1 span {
@@ -941,12 +957,17 @@ cursor.typing {
 .contact {
   min-height: 100vh;
   padding: 8rem 9% 2rem;
+  scroll-margin-top: 100px;
+  position: relative;
 }
 
 .contact h1 {
   text-align: center;
   font-size: 4rem;
   margin-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 2rem;
 }
 
 .contact h1 span {

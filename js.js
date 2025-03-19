@@ -90,3 +90,52 @@ menubutton.addEventListener("transitionend", function () {
     this.classList.add("bx-menu");
   }
 });
+
+// Smooth scrolling functionality
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
+
+    if (targetSection) {
+      // Remove active class from all links
+      document.querySelectorAll("a").forEach((link) => {
+        link.classList.remove("active");
+      });
+
+      // Add active class to clicked link
+      this.classList.add("active");
+
+      // Smooth scroll to target section
+      targetSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
+});
+
+// Handle active state based on scroll position
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a, .res_nav a");
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.clientHeight;
+
+    if (
+      window.scrollY >= sectionTop &&
+      window.scrollY < sectionTop + sectionHeight
+    ) {
+      const sectionId = section.getAttribute("id");
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${sectionId}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+});
