@@ -355,10 +355,8 @@ cursor.typing {
   }
   .home_img {
     height: 29vh;
+    margin-top: 9rem;
   }
-  /* .home_content > h3 {
-    font-size: 2rem;
-  } */
   .home_content {
     margin: 5vw;
   }

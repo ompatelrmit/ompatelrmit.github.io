@@ -140,11 +140,13 @@ window.addEventListener("scroll", () => {
   });
 });
 
-document.querySelector(".Download_CV").addEventListener("click", function () {
-  const link = document.createElement("a");
-  link.href = "Om_Patel_Resume.pdf"; // Path to your file
-  link.download = "Om_Patel_Resume.pdf"; // Custom filename
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+document.querySelectorAll(".Download_CV").forEach((button) => {
+  button.addEventListener("click", function () {
+    const link = document.createElement("a");
+    link.href = "Om_Patel_Resume.pdf"; // File path
+    link.download = "Om_Patel_Resume.pdf"; // Custom filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
 });
